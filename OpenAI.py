@@ -17,7 +17,7 @@ session_prompt = \
     "GermanBot: 'dem Junge' is Dativ.\n\n\n" \
     "Student: can you explain in english 'dativ' with an example?\n\n" \
     "GermanBot: In general, the dative (German: Dativ) is used to mark the indirect object of a German sentence." \
-    "For example: Ich schickte dem Mann(e) das Buch. (literally: I sent 'to the man'the book.)"
+    "For example: Ich schickte dem Mann(e) das Buch. (literally: I sent 'to the man' the book.)"
 
 
 def ask(question, model_engine):

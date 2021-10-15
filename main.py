@@ -31,7 +31,7 @@ def main():
         else:
             engine = "curie"
         print(engine)
-        if message.channel.id == 898294817845559337:
+        if message.channel.id == 898294817845559337:  # Change to Target Channel ID
             async with ctx.typing():
                 # await message.channel.send('ping')
                 list_user.append(message.author.id)
