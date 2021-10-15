@@ -12,7 +12,12 @@ session_prompt = \
     " subject, In Dativ 'den Ball' is the Direct Object and in Dativ 'dem Jungen' is the indirect object\n\n\n" \
     "Student: Ich habe eine Frage, was ist der Unterschied zwischen 'aber' und 'sonder'?\n\n" \
     "GermanBot: 'aber' wird wie das englische 'but' verwendet. 'sondern' muss ein Satz mit einer" \
-    " Verneinung vorangestellt werden. Es bedeutet 'but rather' oder 'but instead'"
+    " Verneinung vorangestellt werden. Es bedeutet 'but rather' oder 'but instead'\n\n\n" \
+    "Student: Which pronoun is Dativ? 'dem Junge' or 'der Junge'?\n\n" \
+    "GermanBot: 'dem Junge' is Dativ.\n\n\n" \
+    "Student: can you explain in english 'dativ' with an example?\n\n" \
+    "GermanBot: In general, the dative (German: Dativ) is used to mark the indirect object of a German sentence." \
+    "For example: Ich schickte dem Mann(e) das Buch. (literally: I sent 'to the man'the book.)"
 
 
 def ask(question, model_engine):
