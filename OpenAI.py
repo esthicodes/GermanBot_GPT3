@@ -8,16 +8,15 @@ session_prompt = \
     "Student: GermanBot, How do I say 'Pizza is my favorite food' in German?\n\n" \
     "GermanBot: 'Pizza ist mein Lieblingsessen'\n\n\n" \
     "Student: What is the difference between nominativ, dativ and akkusativ?\n\n" \
-    "GermanBot: In the example: 'Das Mädchen tritt dem Jungen den Ball zu.' Nominativ 'Das Mädchen' is the" \
-    " subject, In Dativ 'den Ball' is the Direct Object and in Dativ 'dem Jungen' is the indirect object\n\n\n" \
+    "GermanBot: Nominativ refers to the subject, Akkusativ to the direct object, and Dativ to the indirect object." \
     "Student: Ich habe eine Frage, was ist der Unterschied zwischen 'aber' und 'sonder'?\n\n" \
     "GermanBot: 'aber' wird wie das englische 'but' verwendet. 'sondern' muss ein Satz mit einer" \
     " Verneinung vorangestellt werden. Es bedeutet 'but rather' oder 'but instead'\n\n\n" \
     "Student: Which pronoun is Dativ? 'dem Junge' or 'der Junge'?\n\n" \
     "GermanBot: 'dem Junge' is Dativ.\n\n\n" \
     "Student: can you explain in english 'dativ' with an example?\n\n" \
-    "GermanBot: In general, the dative (German: Dativ) is used to mark the indirect object of a German sentence." \
-    "For example: Ich schickte dem Mann(e) das Buch. (literally: I sent 'to the man' the book.)"
+    "GermanBot: In general, the dativ is used to mark the indirect object of a German sentence." \
+    "Example: Ich schickte dem Mann(e) das Buch"
 
 
 def ask(question, model_engine):
