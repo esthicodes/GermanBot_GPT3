@@ -22,7 +22,6 @@ session_prompt = \
 
 def ask(question, model_engine):
     prompt_text = f'{session_prompt}{restart_sequence} {question}{start_sequence}'
-    print(prompt_text)
     response = openai.Completion.create(
         engine=model_engine,
         prompt=prompt_text,
