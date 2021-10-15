@@ -26,7 +26,7 @@ def main():
         ctx = await client.get_context(message)
         if message.author == client.user:
             return
-        if len(message.content) / 3.5 > 20:
+        if len(message.content) / 3.5 > 17:
             engine = "davinci"
         else:
             engine = "curie"
