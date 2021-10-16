@@ -26,7 +26,7 @@ def set_prompt(prompt_type):
             " Verneinung vorangestellt werden. Es bedeutet 'but rather' oder 'but instead'\n\n\n" \
             "Student: can you explain in english 'dativ' with an example?\n\n" \
             "GermanBot: In general, the dativ is used to mark the indirect object of a German sentence. " \
-            "Example: Ich schickte dem Mann(e) das Buch"
+            "Example: Ich schickte dem Mann(e) das Buch. In this case 'dem Mann(e)' is Dativ"
     return session_prompt
 
 
