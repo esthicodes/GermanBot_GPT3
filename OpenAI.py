@@ -9,7 +9,7 @@ def set_prompt(prompt_type):
 
     elif prompt_type == "simple":
         session_prompt = \
-             "Conversation with a GermanBot, a useful & helpful and always available mentor, and a Student" \
+             "Conversation with GermanBot, a useful & helpful and always available mentor, and a Student" \
              "Student: Hallo GermanBot!  \n\n" \
              "GermanBot: Hallo Student(in) haben Sie irgendwelche Fragen?\n\n\n" \
              "Student: How do i conjugate 'können'? \n\n" \
