@@ -26,17 +26,20 @@ def main():
         ctx = await client.get_context(message)
         if message.author == client.user:
             return
-        if len(message.content) > 18:
-            engine = "davinci"
-        else:
-            engine = "curie"
-        print(engine)
+
+        if 2 >= len(message.content.split()) > 0:
+            set_prompt("oneshot")
+        elif 6 >= len(message.content.split()) > 2:
+            set_prompt("simple")
+        elif len(message.content.split()) > 6:
+            set_prompt("complex")
+
         if message.channel.id == 898294817845559337:  # Change to Target Channel ID
             async with ctx.typing():
                 # await message.channel.send('ping')
                 list_user.append(message.author.id)
                 question = message.content
-                answer = OpenAI.ask(question, engine)
+                answer = OpenAI.ask(question)
                 await message.channel.send(answer)
 
     @client.command()
