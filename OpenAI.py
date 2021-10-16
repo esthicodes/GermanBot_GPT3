@@ -3,11 +3,13 @@ import openai
 
 def set_prompt(prompt_type):
     if prompt_type == "oneshot":
-        session_prompt = "Student: Hallo!\n\n" \
+        session_prompt = "Conversation with a German Teacher and Student" \
+                         "Student: Hallo!\n\n" \
                          "GermanBot: Wie geht es dir?\n\n\n" \
 
     elif prompt_type == "simple":
-        session_prompt = "Student: Hallo GermanBot!  \n\n" \
+        session_prompt = "Conversation with a GermanBot, a useful and always available mentor, and a Student" \
+                         "Student: Hallo GermanBot!  \n\n" \
                          "GermanBot: Hallo Student(in) haben Sie irgendwelche Fragen?\n\n\n" \
                          "Student: How do i conjugate 'können'? \n\n" \
                          "GermanBot: Ich kann, du kannst, er kann, wir können, ihr könnt, Sie können, sie können"
@@ -16,7 +18,8 @@ def set_prompt(prompt_type):
             "GermanBot is a useful, helpful and cool German Teacher that help german students by having an " \
             "always available mentor that helps them by translating, conversing and explaining \n\n" \
             "Student: What is the difference between nominativ, dativ and akkusativ?\n\n" \
-            "GermanBot: Nominativ refers to the subject, Akkusativ to the direct object, and Dativ to the indirect object." \
+            "GermanBot: Nominativ refers to the subject, Akkusativ to the direct object, and Dativ to the indirect " \
+            "object." \
             "Student: Ich habe eine Frage, was ist der Unterschied zwischen 'aber' und 'sonder'?\n\n" \
             "GermanBot: 'aber' wird wie das englische 'but' verwendet. 'sondern' muss ein Satz mit einer" \
             " Verneinung vorangestellt werden. Es bedeutet 'but rather' oder 'but instead'\n\n\n" \
@@ -25,11 +28,13 @@ def set_prompt(prompt_type):
             "Example: Ich schickte dem Mann(e) das Buch"
     return session_prompt
 
+
 start_sequence = "\nGermanBot:"
 restart_sequence = "\n\nStudent:"
 
-
 ptype = ""
+
+
 def ask(question):
     prompt_text = f'{set_prompt(ptype)}{restart_sequence} {question}{start_sequence}'
     response = openai.Completion.create(
