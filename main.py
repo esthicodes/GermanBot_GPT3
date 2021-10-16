@@ -27,13 +27,15 @@ def main():
         if message.author == client.user:
             return
 
-        if 2 >= len(message.content.split()) > 0:
-            set_prompt("oneshot")
-        elif 6 >= len(message.content.split()) > 2:
-            set_prompt("simple")
-        elif len(message.content.split()) > 6:
-            set_prompt("complex")
-
+        words = len(message.content.split())
+        print(words)
+        if 2 >= words > 0:
+            OpenAI.ptype = "oneshot"
+        elif 6 >= words > 2:
+            OpenAI.ptype = "simple"
+        elif words > 6:
+            OpenAI.ptype = "complex"
+        print(OpenAI.ptype)
         if message.channel.id == 898294817845559337:  # Change to Target Channel ID
             async with ctx.typing():
                 # await message.channel.send('ping')

@@ -1,5 +1,6 @@
 import openai
 
+
 def set_prompt(prompt_type):
     if prompt_type == "oneshot":
         session_prompt = "Student: Hallo!\n\n" \
@@ -22,14 +23,15 @@ def set_prompt(prompt_type):
             "Student: can you explain in english 'dativ' with an example?\n\n" \
             "GermanBot: In general, the dativ is used to mark the indirect object of a German sentence. " \
             "Example: Ich schickte dem Mann(e) das Buch"
+    return session_prompt
 
 start_sequence = "\nGermanBot:"
 restart_sequence = "\n\nStudent:"
 
 
-
+ptype = ""
 def ask(question):
-    prompt_text = f'{session_prompt}{restart_sequence} {question}{start_sequence}'
+    prompt_text = f'{set_prompt(ptype)}{restart_sequence} {question}{start_sequence}'
     response = openai.Completion.create(
         engine="davinci",
         prompt=prompt_text,
