@@ -29,13 +29,10 @@ def set_prompt(prompt_type):
     return session_prompt
 
 
-start_sequence = "\nGermanBot:"
-restart_sequence = "\n\nStudent:"
-
 ptype = ""
-
-
 def ask(question):
+    start_sequence = "\nGermanBot:"
+    restart_sequence = "\n\nStudent:"
     prompt_text = f'{set_prompt(ptype)}{restart_sequence} {question}{start_sequence}'
     response = openai.Completion.create(
         engine="davinci",
@@ -46,6 +43,24 @@ def ask(question):
         frequency_penalty=0.0,
         presence_penalty=0.6,
         stop=["\n", " Student:", " GermanBot:"]
+    )
+    story = response['choices'][0]['text']
+    return str(story)
+
+
+def correct(sentence):
+    start_sequence = "\nStandard German:"
+    restart_sequence = "\n\nOriginal:"
+    prompt_text = f'{restart_sequence} {sentence}{start_sequence}'
+    response = openai.Completion.create(
+        engine="davinci",
+        prompt=prompt_text,
+        temperature=0,
+        max_tokens=60,
+        top_p=1,
+        frequency_penalty=0.0,
+        presence_penalty=0.0,
+        stop=["\n", " Original:", " Standard German:"]
     )
     story = response['choices'][0]['text']
     return str(story)

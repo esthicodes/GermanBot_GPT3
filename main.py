@@ -31,12 +31,23 @@ def main():
             OpenAI.ptype = "simple"
         elif words > 6:
             OpenAI.ptype = "complex"
-        print(OpenAI.ptype)
         async with ctx.typing():
             # await message.channel.send('ping')
-            list_user.append(ctx.author.id)
+            list_user.append(ctx.message.author.id)
             answer = OpenAI.ask(question)
             await ctx.send(answer)
+
+
+    @client.command()
+    async def correct(ctx, *, sentence):
+        async with ctx.typing():
+            correction = OpenAI.correct(sentence)
+            if correction == sentence:
+                await ctx.send("I think there is no issue with your sentence")
+            else:
+                await ctx.send(f"Maybe you should try saying: '{correction}'")
+
+
 
     @client.command()
     @commands.is_owner()
