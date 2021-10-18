@@ -66,7 +66,7 @@ def main():
 
     @client.command()
     async def correct(ctx, *, sentence):
-        if ctx.message.channel == channel:
+        if ctx.message.channel == channel or ctx.author.id == owner:
             async with ctx.typing():
                 correction = OpenAI.correct(sentence)
                 if correction.strip() == sentence.strip():
