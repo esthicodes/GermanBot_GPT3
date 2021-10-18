@@ -43,14 +43,10 @@ def main():
         await ctx.message.add_reaction(emoji)
         await ctx.author.send(embed=embed)
 
-    channel = 898294817845559337 # Change Discord channel ID
-    owner = 530621162250567681 # Change Discord owner ID
-
+    channel = 898294817845559337 # Change Discord channel
     @client.command()
     async def ask(ctx, *, question):
-        if ctx.channel == channel:
-            await ctx.send("True")
-        if ctx.channel == channel or ctx.author.id == owner:
+        if ctx.message.channel == channel:
             words = len(question.split())
             print(words)
             if 2 >= words > 0:
@@ -67,7 +63,7 @@ def main():
 
     @client.command()
     async def correct(ctx, *, sentence):
-        if ctx.message.channel == channel or ctx.author.id == owner:
+        if ctx.message.channel == channel:
             async with ctx.typing():
                 correction = OpenAI.correct(sentence)
                 if correction.strip() == sentence.strip():
