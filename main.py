@@ -43,30 +43,34 @@ def main():
         await ctx.message.add_reaction(emoji)
         await ctx.author.send(embed=embed)
 
+    channel = 898294817845559337 # Change Discord channel
+    owner = 530621162250567681
     @client.command()
     async def ask(ctx, *, question):
-        words = len(question.split())
-        print(words)
-        if 2 >= words > 0:
-            OpenAI.ptype = "oneshot"
-        elif 6 >= words > 2:
-            OpenAI.ptype = "simple"
-        elif words > 6:
-            OpenAI.ptype = "complex"
-        async with ctx.typing():
-            # await message.channel.send('ping')
-            list_user.append(ctx.message.author.id)
-            answer = OpenAI.ask(question)
-            await ctx.send(answer)
+        if ctx.message.channel == channel or ctx.author.id == owner:
+            words = len(question.split())
+            print(words)
+            if 2 >= words > 0:
+                OpenAI.ptype = "oneshot"
+            elif 6 >= words > 2:
+                OpenAI.ptype = "simple"
+            elif words > 6:
+                OpenAI.ptype = "complex"
+            async with ctx.typing():
+                # await message.channel.send('ping')
+                list_user.append(ctx.message.author.id)
+                answer = OpenAI.ask(question)
+                await ctx.send(answer)
 
     @client.command()
     async def correct(ctx, *, sentence):
-        async with ctx.typing():
-            correction = OpenAI.correct(sentence)
-            if correction.strip() == sentence.strip():
-                await ctx.send("I think there is no issue with your sentence")
-            else:
-                await ctx.send(f"Maybe you should try saying: '{correction}'")
+        if ctx.message.channel == channel or ctx.author.id == owner:
+            async with ctx.typing():
+                correction = OpenAI.correct(sentence)
+                if correction.strip() == sentence.strip():
+                    await ctx.send("I think there is no issue with your sentence")
+                else:
+                    await ctx.send(f"Maybe you should try saying: '{correction}'")
 
     @client.command()
     @commands.is_owner()
