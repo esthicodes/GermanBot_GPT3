@@ -48,7 +48,8 @@ def main():
 
     @client.command()
     async def ask(ctx, *, question):
-
+        if ctx.channel == channel:
+            await ctx.send("True")
         if ctx.channel == channel or ctx.author.id == owner:
             words = len(question.split())
             print(words)
