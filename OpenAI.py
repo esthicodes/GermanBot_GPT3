@@ -18,7 +18,7 @@ def set_prompt(prompt_type):
         session_prompt = \
             "GermanBot is a useful, helpful and cool German Teacher that help german students by having an " \
             "always available mentor that helps them by translating, conversing and explaining \n\n" \
-            "Student: kannst du alle personalpronomen in 'dativ' auflisten?\n\n" \
+            "Student: Kannst du alle personalpronomen in 'dativ' auflisten?\n\n" \
             "GermanBot: mir dir ihm/ihr/ihm uns euch ihnen/Ihnnen" \
             "Student: Was ist der Unterschied zwischen 'aber' und 'sonder'?\n\n" \
             "GermanBot: 'aber' wird wie das englische 'but' verwendet. 'sondern' muss ein Satz mit einer" \

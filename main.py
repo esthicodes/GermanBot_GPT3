@@ -21,13 +21,9 @@ def main():
 
     list_user = []
 
-    @client.event
-    async def on_message(message):
-        ctx = await client.get_context(message)
-        if message.author == client.user:
-            return
-
-        words = len(message.content.split())
+    @client.command()
+    async def ask(ctx, *, question):
+        words = len(question.split())
         print(words)
         if 2 >= words > 0:
             OpenAI.ptype = "oneshot"
@@ -36,13 +32,11 @@ def main():
         elif words > 6:
             OpenAI.ptype = "complex"
         print(OpenAI.ptype)
-        if message.channel.id == 898294817845559337:  # Change to Target Channel ID
-            async with ctx.typing():
-                # await message.channel.send('ping')
-                list_user.append(message.author.id)
-                question = message.content
-                answer = OpenAI.ask(question)
-                await message.channel.send(answer)
+        async with ctx.typing():
+            # await message.channel.send('ping')
+            list_user.append(ctx.author.id)
+            answer = OpenAI.ask(question)
+            await ctx.send(answer)
 
     @client.command()
     @commands.is_owner()
