@@ -41,8 +41,8 @@ def main():
     @client.command()
     async def correct(ctx, *, sentence):
         async with ctx.typing():
-            correction = OpenAI.correct(sentence).strip()
-            if correction == sentence:
+            correction = OpenAI.correct(sentence)
+            if correction.strip() == sentence.strip():
                 await ctx.send("I think there is no issue with your sentence")
             else:
                 await ctx.send(f"Maybe you should try saying: '{correction}'")
