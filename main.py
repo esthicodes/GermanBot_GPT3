@@ -24,6 +24,12 @@ def main():
                     description='**This command cannot be used in private messages.**',
                     color=discord.Color.red()),
             )
+        elif isinstance(error, commands.CommandNotFound):
+            await ctx.send(
+                embed=discord.Embed(
+                    description='**This command doesnt exists.**',
+                    color=discord.Color.red()),
+            )
 
     @client.command()
     async def help(ctx):
